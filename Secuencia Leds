@@ -1,0 +1,138 @@
+from machine import Pin as pin
+from utime import sleep, sleep_ms
+led1=pin(13,pin.OUT)
+led2=pin(12,pin.OUT)
+led3=pin(14,pin.OUT)
+led4=pin(27,pin.OUT)
+led5=pin(26,pin.OUT)
+led6=pin(25,pin.OUT)
+led7=pin(33,pin.OUT)
+led8=pin(32,pin.OUT)
+
+LEDS1 = [led1,led2,led3]
+LEDS2 = [led4,led5,led6]
+LEDS3 = [led6,led7,led8]
+LEDS = [led1,led2,led3,led4,led5,led6,led7,led8]
+
+boton1=pin(15,pin.IN,pin.PULL_UP)
+boton2=pin(23,pin.IN,pin.PULL_UP)
+boton3=pin(1,pin.IN,pin.PULL_UP)
+boton4=pin(18,pin.IN,pin.PULL_UP)
+pausa=0.05
+pausa1=0.02
+pausa2=1
+
+def derecha():
+  for elementos in LEDS1:
+    elementos.value(1)
+    sleep(pausa)
+    elementos.value(0)
+    sleep(pausa)
+def izquierda():
+  for elementos in reversed (LEDS1):
+    elementos.value(1)
+    sleep(pausa)
+    elementos.value(0)
+    sleep(pausa)
+def todos():
+  for elementos in LEDS1:
+    elementos.value(1)
+    sleep(pausa)
+def todos1():
+  for elementos in LEDS1:
+    elementos.value(0)
+def derecha2():
+  for elementos in LEDS2:
+    elementos.value(1)
+    sleep(pausa)
+    elementos.value(0)
+    sleep(pausa)
+def izquierda2():
+  for elementos in reversed (LEDS2):
+    elementos.value(1)
+    sleep(pausa)
+    elementos.value(0)
+    sleep(pausa)
+def todosb():
+  for elementos in LEDS2:
+    elementos.value(1)
+    sleep(pausa)
+def todosb2():
+  for elementos in LEDS2:
+    elementos.value(0)
+def derecha3():
+  for elementos in LEDS3:
+    elementos.value(1)
+    sleep(pausa)
+    elementos.value(0)
+    sleep(pausa)
+def izquierda3():
+  for elementos in reversed (LEDS3):
+    elementos.value(1)
+    sleep(pausa)
+    elementos.value(0)
+    sleep(pausa)
+def todos3():
+  for elementos in LEDS3:
+    elementos.value(1)
+    sleep(pausa)
+def todosc3():
+  for elementos in LEDS3:
+    elementos.value(0)
+def derecha4():
+  for elementos in LEDS:
+    elementos.value(1)
+    sleep(pausa)
+    elementos.value(0)
+    sleep(pausa)
+def izquierda4():
+  for elementos in reversed (LEDS):
+    elementos.value(1)
+    sleep(pausa)
+    elementos.value(0)
+    sleep(pausa)
+def todos4():
+  for elementos in LEDS:
+    elementos.value(1)
+    sleep(pausa)
+def todosd():
+  for elementos in LEDS:
+    elementos.value(0)
+
+
+    
+while True: 
+  if (boton1.value()==0):
+    derecha()
+  elif (boton2.value()==0):
+    todos()
+  elif (boton2.value()==1):
+    todos1()    
+  elif (boton1.value()==1):
+    izquierda()
+  elif (boton3.value()==0):
+    derecha2()
+  elif (boton4.value()==0):
+    todos2()
+  elif (boton4.value()==1):
+    todosb()
+  elif (boton3.value()==1):
+    izquierda2()
+  elif (boton1.value()==0 and boton2.value() == 0):
+    derecha3()
+  elif (boton1.value()==0 and boton3.value()==0):
+    todos3()
+  elif (boton1.value()==0 and boton4.value()==0):
+    todosc()
+  elif (boton2.value()==0 and boton3.value()==0):
+    izquierda3()
+  elif (boton2.value()==0 and boton4.value() == 0):
+    derecha4()
+  elif (boton3.value()==0 and boton4.value()==0):
+    todos4()
+  elif (boton1.value()==0 and boton2.value()==0 and boton3.value()==0):
+    todosd()
+  elif (boton2.value()==0 and boton3.value()==0 and boton4.value()==0):
+    izquierda4()
+  else:
+    print ("hola mundo")
